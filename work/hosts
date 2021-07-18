@@ -2,7 +2,3 @@
 node01
 node02
 node03
-
-[all:vars]
-# need Python3 in node
-# ansible_python_interpreter=/usr/bin/python3

@@ -16,6 +16,7 @@ RUN sed -ri 's/^#PermitEmptyPasswords no/PermitEmptyPasswords yes/' /etc/ssh/ssh
 # set a password for root
 RUN echo "root:" | chpasswd
 
+# expose 22 port
 EXPOSE 22
 
 # start up sshd

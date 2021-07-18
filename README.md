@@ -1,4 +1,4 @@
-# Ansible on Centos7
+# Ansible on CentOS7
 
 ## コンテナ構築
 
@@ -11,10 +11,7 @@ $ docker-compose build --no-cache
 ### 削除
 
 ```
-$ docker-compose down
-$ docker container prune
-$ docker image prune -a
-$ docker volume prune
+$ docker-compose down -v
 ```
 
 ## コンテナ起動・停止
@@ -55,9 +52,9 @@ localhost | SUCCESS => {
 ```
 
 node0x に対して、ssh で接続確認を行います。  
-この作業で、予めターゲットノードを ssh の known に登録します。  
+この作業で、予めターゲットノードを ssh の known_hosts に登録します。  
 ※node0x の x はターゲットノードの番号に置き換えてください   
-※接続を続けるかを聞かれた場合は yes と入力して下さい   
+※接続を続けるかを聞かれた場合は yes と入力して下さい
 
 ```
 $ ssh node0x

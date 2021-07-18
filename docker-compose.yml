@@ -1,4 +1,11 @@
-version: '3'
+version: '3.8'
+
+x-node: &node
+  build: ./node
+  privileged: true
+  command: /sbin/init
+  tty: true
+
 services:
   ansible:
     container_name: 'ansible'
@@ -10,25 +17,16 @@ services:
 
   node01:
     container_name: node01
-    build: ./node
+    <<: *node
     ports:
       - '8081:80'
-    privileged: true
-    command: /sbin/init
-    tty: true
   node02:
     container_name: node02
-    build: ./node
+    <<: *node
     ports:
       - '8082:80'
-    privileged: true
-    command: /sbin/init
-    tty: true
   node03:
     container_name: node03
-    build: ./node
+    <<: *node
     ports:
       - '8083:80'
-    privileged: true
-    command: /sbin/init
-    tty: true
