@@ -11,7 +11,10 @@ $ docker-compose build --no-cache
 ### 削除
 
 ```
-$ reset.bat
+$ docker-compose down
+$ docker container prune
+$ docker image prune -a
+$ docker volume prune
 ```
 
 ## コンテナ起動・停止
@@ -19,13 +22,13 @@ $ reset.bat
 ### 起動
 
 ```
-$ restart.bat
+$ docker-compose up -d
 ```
 
 ### 停止
 
 ```
-$ stop.bat
+$ docker compose stop
 ```
 
 ## centos コンテナの環境構築

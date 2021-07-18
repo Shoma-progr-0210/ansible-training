@@ -1,0 +1,34 @@
+version: '3'
+services:
+  ansible:
+    container_name: 'ansible'
+    build: ./ansible
+    tty: true
+    working_dir: '/root/work'
+    volumes:
+      - ./work:/root/work
+
+  node01:
+    container_name: node01
+    build: ./node
+    ports:
+      - '8081:80'
+    privileged: true
+    command: /sbin/init
+    tty: true
+  node02:
+    container_name: node02
+    build: ./node
+    ports:
+      - '8082:80'
+    privileged: true
+    command: /sbin/init
+    tty: true
+  node03:
+    container_name: node03
+    build: ./node
+    ports:
+      - '8083:80'
+    privileged: true
+    command: /sbin/init
+    tty: true
