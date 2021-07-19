@@ -39,7 +39,7 @@ $ docker-compose exec ansible bash
 ansible の動作確認
 
 ```
-$ ansible -m ping localhost
+$ ansible localhost -m ping
 ```
 
 確認結果
@@ -51,9 +51,9 @@ localhost | SUCCESS => {
 }
 ```
 
-node0x に対して、ssh で接続確認を行います。  
-この作業で、予めターゲットノードを ssh の known_hosts に登録します。  
-※node0x の x はターゲットノードの番号に置き換えてください   
+node0x に対して、SSH で接続確認を行います。  
+この作業で、予めターゲットノードを SSH の known_hosts に登録します。  
+※node0x の x はターゲットノードの番号に置き換えてください  
 ※接続を続けるかを聞かれた場合は yes と入力して下さい
 
 ```
@@ -64,7 +64,13 @@ $ exit
 ターゲットノードに対して疎通確認を行います。
 
 ```
-$ ansible -m ping node
+$ ansible node -m ping
+```
+
+httpdセットアップの準備として、ターゲットノードにsudoをインストールします。
+
+```
+$ ansible node -m shell -a 'yum -y install sudo'
 ```
 
 playbook.yml を実行して、ターゲットノードに httpd をセットアップします。

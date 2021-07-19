@@ -2,6 +2,7 @@
 - name: deploy httpd server
   hosts: node
   become: yes
+  gather_facts: no
   tasks:
     - name: install httpd
       yum:
