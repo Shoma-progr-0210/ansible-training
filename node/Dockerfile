@@ -3,8 +3,8 @@ FROM centos:7
 
 # install ssh server
 RUN yum -y install openssh-server && yum clean all
-# # install sudo
-# RUN yum -y install sudo
+# install sudo
+RUN yum -y install sudo
 
 # create Public key
 RUN ssh-keygen -f /etc/ssh/ssh_host_rsa_key -N '' -t rsa

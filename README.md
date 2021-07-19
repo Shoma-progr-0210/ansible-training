@@ -67,12 +67,6 @@ $ exit
 $ ansible node -m ping
 ```
 
-httpdセットアップの準備として、ターゲットノードにsudoをインストールします。
-
-```
-$ ansible node -m shell -a 'yum -y install sudo'
-```
-
 playbook.yml を実行して、ターゲットノードに httpd をセットアップします。
 
 ```
